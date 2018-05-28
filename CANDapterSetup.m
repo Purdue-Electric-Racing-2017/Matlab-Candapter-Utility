@@ -1,4 +1,4 @@
-4%%Initiinstalize CANDapter
+%%Initiinstalize CANDapter
 % lastCOMport = port;
 % port = input(sprintf('COM Port: [COM%s] COM',port));
 % if isempty(port)

@@ -1,0 +1,12 @@
+matlab var,can id,start bit,end bit,check start,check end,check value
+main_state,200,0,2,-1,-1,-1
+main_imp,200,2,3,-1,-1,-1
+main_bp,200,3,4,-1,-1,-1
+main_eor,200,4,5,-1,-1,-1
+main_pbtimeout,200,5,6,-1,-1,-1
+main_precharge,200,6,7,-1,-1,-1
+pb_apps1,501,0,15,-1,-1,-1
+pb_apps2,501,16,31,-1,-1,-1
+pb_brake1,501,32,47,-1,-1,-1
+pb_brake2,501,48,63,-1,-1,-1
+main_icmd,190,16,31,0,7,0x90
