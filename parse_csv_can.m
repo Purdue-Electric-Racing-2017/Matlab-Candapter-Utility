@@ -1,9 +1,9 @@
-function [] = parse_csv_can(raw_file)
+%function [] = parse_csv_can(raw_file)
 
-
+%global formatTable
 formatTable = readtable('format.csv', 'Delimiter',',','Format','%s%s%s%s%s%s%s');
 
-fptr = fopen(raw_file);
+fptr = fopen('whatisthis.txt');
 status = feof(fptr);
 
 for i = 1:height(formatTable)
@@ -13,6 +13,7 @@ end
 
 i = 0;
 while status == 0
+    try
 % read 1 line from the file
 line = fgetl(fptr);
 % disp(line);
@@ -23,22 +24,26 @@ data = strsplit(line, ',');
 
 % convert data to correct data type for storeValues function
 timestamp = str2double(data(1));
-id = data(2);
+id = string(data(2));
+
 length = hex2dec(data(3));
-bytes = data(4);
+bytes = string(data(4));
 % disp(timestamp)
 % disp(id)
 % disp(length)
 % disp(bytes)
 byte = hexToBinaryVector(bytes);
-disp(byte);
+%disp(byte);
 
 % store value from external function
-fprintf("%d\n", i );
+
+
 storeValues(formatTable, timestamp, id, length, bytes);
+    catch
+        fprintf("%d\n", timestamp);
+
+    end
 
 status = feof(fptr);
 end
 fclose(fptr);
-
-end
